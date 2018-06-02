@@ -7,6 +7,8 @@ services:
     restart: unless-stopped
     volumes:
       - drupal-code:/var/www/html
+    links:
+      - drupal-db
 
   drupal-web:
     image: drupaldocker/nginx
@@ -20,7 +22,7 @@ services:
     links:
       - drupal-php:php
 
-  drupal-database:
+  drupal-db:
     image: mariadb
     restart: unless-stopped
     environment:

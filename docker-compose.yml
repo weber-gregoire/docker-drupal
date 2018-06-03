@@ -10,6 +10,13 @@ services:
       - drupal-code:/var/www/html
     depends_on:
       - drupal-db
+    environment:
+      - MYSQL_HOST=drupal-db
+      - MYSQL_DATABASE=drupale
+      - MYSQL_USER=drupale
+      - MYSQL_PASSWORD=drupale
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=password
 
   drupal-web:
     image: drupaldocker/nginx
@@ -28,14 +35,14 @@ services:
     restart: unless-stopped
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
-      - MYSQL_DATABASE=drupal
-      - MYSQL_USER=drupal
-      - MYSQL_PASSWORD=drupal
-    # volumes:
-    #   - drupal-database:/var/lib/mysql
+      - MYSQL_DATABASE=drupale
+      - MYSQL_USER=drupale
+      - MYSQL_PASSWORD=drupale
+    volumes:
+      - drupal-database:/var/lib/mysql
 
 volumes:
-  # drupal-database:
-  #   driver: local
+  drupal-database:
+    driver: local
   drupal-code:
     driver: local

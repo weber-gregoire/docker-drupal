@@ -6,10 +6,10 @@ services:
   - docker
 
 script:
-  - docker build -t gregoireweber/docker-drupal:latest drupal
+  - docker build -t gregoireweber/drupal8:latest drupal
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
       docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-      docker tag gregoireweber/docker-drupal:latest gregoireweber/docker-drupal:$TRAVIS_BUILD_NUMBER";
-      docker push gregoireweber/docker-drupal:latest;
-      docker push gregoireweber/docker-drupal:$TRAVIS_BUILD_NUMBER";
+      docker tag gregoireweber/drupal8:latest gregoireweber/drupal8:$TRAVIS_BUILD_NUMBER";
+      docker push gregoireweber/drupal8:latest;
+      docker push gregoireweber/drupal8:$TRAVIS_BUILD_NUMBER";
     fi

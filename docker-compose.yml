@@ -3,8 +3,7 @@ version: '3.1'
 services:
 
   drupal-php:
-    build: ./drupal
-    image: gregoireweber/docker-drupal
+    image: gregoireweber/docker-drupal:latest
     restart: unless-stopped
     volumes:
       - drupal-code:/var/www/html
@@ -12,9 +11,9 @@ services:
       - drupal-db
     environment:
       - MYSQL_HOST=drupal-db
-      - MYSQL_DATABASE=drupale
-      - MYSQL_USER=drupale
-      - MYSQL_PASSWORD=drupale
+      - MYSQL_DATABASE=drupal
+      - MYSQL_USER=drupal
+      - MYSQL_PASSWORD=drupal
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=password
 
@@ -35,9 +34,9 @@ services:
     restart: unless-stopped
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
-      - MYSQL_DATABASE=drupale
-      - MYSQL_USER=drupale
-      - MYSQL_PASSWORD=drupale
+      - MYSQL_DATABASE=drupal
+      - MYSQL_USER=drupal
+      - MYSQL_PASSWORD=drupal
     volumes:
       - drupal-database:/var/lib/mysql
 

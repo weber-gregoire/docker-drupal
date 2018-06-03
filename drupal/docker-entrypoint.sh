@@ -36,7 +36,7 @@ if [[ "$1" == start ]]; then
     fi
 
     while ! mysqladmin ping -h "$MYSQL_HOST" -u $MYSQL_USER -p$MYSQL_PASSWORD --silent; do
-        sleep 1
+      sleep 1
     done
 
     drush si standard \

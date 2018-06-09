@@ -48,6 +48,7 @@ if [[ "$1" == start ]]; then
     touch .installed
   fi
 
+  drush cr
   docker-php-entrypoint php-fpm
 
 else

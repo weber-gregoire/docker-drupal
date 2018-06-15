@@ -8,8 +8,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin -
     composer require drush/drush && \
     chown -R www-data:www-data /var/www/html
 
-VOLUME /var/www/html
-
 USER www-data
 
 COPY ./docker-entrypoint.sh /entrypoint.sh

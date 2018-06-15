@@ -3,7 +3,7 @@ version: '3.1'
 services:
 
   drupal-php:
-    image: gregoireweber/docker-drupal:latest
+    image: gregoireweber/drupal8:latest
     restart: unless-stopped
     volumes:
       - drupal-code:/var/www/html
